@@ -1,9 +1,12 @@
 {
-  "name": "typescript-book",
+  "name": "mt-bank",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "mt-bank": "bin/app.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
