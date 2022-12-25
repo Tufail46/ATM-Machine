@@ -36,7 +36,9 @@ let pinError = true;
 let userExist: any;
 let userPin: any;
 do {
-  let accNo = await inquirer.prompt({
+  let accNo: {
+    account_No: number;
+  } = await inquirer.prompt({
     name: "account_No",
     message: "Please Enter your Account Number",
     type: "number",
@@ -46,7 +48,9 @@ do {
   );
   if (userExist != -1) {
     do {
-      let pinCode = await inquirer.prompt({
+      let pinCode: {
+        pin_Code: number;
+      } = await inquirer.prompt({
         name: "pin_Code",
         message: "Please Enter your PinCode Number",
         type: "number",
@@ -65,7 +69,9 @@ do {
 } while (restart);
 
 let mainMenu = async (userPara: any, balancePara: number) => {
-  let menu = await inquirer.prompt({
+  let menu: {
+    select_menu: string;
+  } = await inquirer.prompt({
     name: `select_menu`,
     type: `list`,
     choices: [`Balance Inquiry`, `Cash Withdraw`],
@@ -82,7 +88,9 @@ let mainMenu = async (userPara: any, balancePara: number) => {
   }
 };
 let withdraw = async (userPara: any, balancePara: number) => {
-  let withdrawmoney = await inquirer.prompt({
+  let withdrawmoney: {
+    money_withdraw: number;
+  } = await inquirer.prompt({
     name: `money_withdraw`,
     message: `Enter the amount of money you want to withdraw`,
     type: `number`,
@@ -90,7 +98,9 @@ let withdraw = async (userPara: any, balancePara: number) => {
   bankData[balancePara].balance =
     bankData[balancePara].balance - withdrawmoney.money_withdraw;
   console.log(`Your remaining balance is ${bankData[balancePara].balance}`);
-  let receiptPrint = await inquirer.prompt({
+  let receiptPrint: {
+    receipt_print: boolean;
+  } = await inquirer.prompt({
     name: "receipt_print",
     message: `Do you want to print Recepit`,
     type: `confirm`,
